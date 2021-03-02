@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { MenuItems } from './MenuItems'
 import { Button } from '../Button'
 import './Navbar.css'
+// import showSidebar from './Sidebar.js';
 
 
 class Navbar extends Component {
@@ -14,6 +15,9 @@ class Navbar extends Component {
     render() {
         return(
             <nav className="NavbarItems">
+                {/* <NavIcon to='#'>
+                    <FaIcons.FaBars onClick={showSidebar}/>
+                </NavIcon> */}
                 <h1 className="navbar-logo">CourDevelops</h1>
 
                 <div className="menu-icon" onClick={this.handleClick}>
