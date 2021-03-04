@@ -2,33 +2,36 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
+// import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import { IconContext } from 'react-icons/lib';
+import SubMenu from './Submenu';
+import './Navbar.css'
+import { ToDos } from './ToDos';
+import { Button } from '../Button'
 
-
+//NAVBAR
 const Nav = styled.div`
-    background: #15171c;
+    background: linear-gradient(90deg, rgb(19, 18, 22) 0%, rgb(23, 13, 204) 100%);
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+`;
+
+const NavIcon = styled(Link)`
+    margin-left: 2rem;
+    font-size: 2rem;
     height: 80px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 `;
 
-
-const NavIcon = styled(Link)`
-  margin-left: 2rem;
-  font-size: 2rem;
-  height: 80px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-`;
-
 //Created SIDEBAR NAV
 const SidebarNav = styled.nav`
     background: #15171c;
-    width: 250px;
+    width: 300px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -44,29 +47,65 @@ const SidebarWrap = styled.div`
     width: 100%;
 `;
 
-// SIDEBAR
+//SIDEBAR
 const Sidebar = () => {
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar);
 
     return (
-        <div>
-            <Nav>
-                <NavIcon to='#'>
-                    <FaIcons.FaBars onClick={showSidebar}/>
-                </NavIcon>
-            </Nav>
-            <SidebarNav sidebar={sidebar}>
-                <SidebarWrap>
+        <>
+            <IconContext.Provider value={{ color: '#fff' }}>
+
+                {/* NavBar Part */}
+
+                <Nav>
+
                     <NavIcon to='#'>
-                        <AiIcons.AiOutlineClose onClick={showSidebar}/>
+                        <FaIcons.FaBars onClick={showSidebar}/> 
                     </NavIcon>
-                </SidebarWrap>
-            </SidebarNav>
-        </div>
-    )
-}
+
+                    <h1 className="navbar-logo">CourDevelops
+                        {/* <i className="fas fa-code"></i> */}
+                    </h1>
+
+                    <div className="menu-icon">
+
+                    </div>
+
+                    
+                    <ul className="nav-menu">
+                        {ToDos.map((item, index) => {
+                            return (
+                                <li key={index}>
+                                    <a className={item.cName} href={item.url}>
+                                        {item.title}
+                                    </a>
+                                </li>
+                            )
+                        })}
+                    </ul>
+
+                    <Button>Account</Button>
+
+                </Nav>
+
+
+                {/* SideBar Part */}
+                <SidebarNav sidebar={sidebar}>
+                    <SidebarWrap>
+                        {/* <NavIcon to='#'>
+                            <AiIcons.AiOutlineClose onClick={showSidebar}/>
+                        </NavIcon> */}
+                        {SidebarData.map((item, index) => {
+                            return <SubMenu item={item} key={index} />;
+                        })}
+                    </SidebarWrap>
+                </SidebarNav>
+            </IconContext.Provider>
+        </>
+    );
+};
 
 export default Sidebar
 
