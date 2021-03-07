@@ -1,27 +1,27 @@
 export const ToDos = [
     {
         title: 'Home',
-        url: '#',
+        url: '/pages/home',
         cName: 'nav-links'
     },
     {
         title: 'Projects',
-        url: '#',
+        url: '/pages/projects',
         cName: 'nav-links'
     },
     {
         title: 'Deliverables',
-        url: '#',
+        url: '/pages/deliverables',
         cName: 'nav-links'
     },
     {
         title: 'Practices',
-        url: '#',
+        url: '/pages/practices',
         cName: 'nav-links'
     },
     {
         title: 'Preview',
-        url: '#',
+        url: '/pages/preview',
         cName: 'nav-links-mobile'
     }
 ]

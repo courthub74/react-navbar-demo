@@ -14,10 +14,14 @@
 .react,
 .git,
 .github,
-.api {
+.api,
+.home,
+.practices,
+.projects,
+.delivs {
   display: flex;
   height: 90vh;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 1rem;
 }

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 // import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
+import { NavbarData } from './NavbarData';
 import { IconContext } from 'react-icons/lib';
 import SubMenu from './Submenu';
 import './Navbar.css'
@@ -65,11 +66,20 @@ const Sidebar = () => {
                         <FaIcons.FaBars onClick={showSidebar}/> 
                     </NavIcon>
 
-                    <h1 className="navbar-logo">CourDevelops
+                    <h1><a href="/pages/home" className="navbar-logo">CourDevelops</a>
                         {/* <i className="fas fa-code"></i> */}
                     </h1>
 
-                    <div className="menu-icon">
+                    <div className="nav-links">
+                        {/* {ToDos.map((item, index) => {
+                            return (
+                                <li key={index}>
+                                    <a className={item.cName} href={item.url}>
+                                        {item.title}
+                                    </a>
+                                </li>
+                            )
+                        })} */}
 
                     </div>
 
@@ -84,6 +94,7 @@ const Sidebar = () => {
                                 </li>
                             )
                         })}
+                        
                     </ul>
 
                     <Button>Account</Button>
