@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 // import * as AiIcons from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
-import { NavbarData } from './NavbarData';
+// import { NavbarData } from './NavbarData';
 import { IconContext } from 'react-icons/lib';
 import SubMenu from './Submenu';
 import './Navbar.css'
 import { ToDos } from './ToDos';
 import { Button } from '../Button'
+import { Scrollbars } from "react-custom-scrollbars"
 
 //NAVBAR
 const Nav = styled.div`
@@ -71,15 +72,7 @@ const Sidebar = () => {
                     </h1>
 
                     <div className="nav-links">
-                        {/* {ToDos.map((item, index) => {
-                            return (
-                                <li key={index}>
-                                    <a className={item.cName} href={item.url}>
-                                        {item.title}
-                                    </a>
-                                </li>
-                            )
-                        })} */}
+                       
 
                     </div>
 
@@ -103,16 +96,22 @@ const Sidebar = () => {
 
 
                 {/* SideBar Part */}
-                <SidebarNav sidebar={sidebar}>
-                    <SidebarWrap>
-                        {/* <NavIcon to='#'>
-                            <AiIcons.AiOutlineClose onClick={showSidebar}/>
-                        </NavIcon> */}
-                        {SidebarData.map((item, index) => {
-                            return <SubMenu item={item} key={index} />;
-                        })}
-                    </SidebarWrap>
-                </SidebarNav>
+                
+
+                    <SidebarNav sidebar={sidebar}>
+                        
+                        <SidebarWrap>
+                        <Scrollbars style={{ width: 300, height: 1000 }}>
+                            {SidebarData.map((item, index) => {
+                                return <SubMenu item={item} key={index} />;
+                            })}
+                            </Scrollbars>
+                        </SidebarWrap>
+                        
+
+                    </SidebarNav>
+
+                
             </IconContext.Provider>
         </>
     );
